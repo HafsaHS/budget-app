@@ -160,7 +160,7 @@ const AddExpense = () => {
                     {budget.description}
                   </p>
                   <p classDescription="text-gray-700">
-                    Amount: ${budget.targetAmount.toFixed(2)}
+                    Amount: ${budget.targetAmount?.toFixed(2)}
                   </p>
                   <p classDescription="text-gray-500">Date: {budget.date}</p>
                 </li>
