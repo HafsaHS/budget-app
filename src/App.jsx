@@ -1,11 +1,18 @@
-import React from "react";
-import Homepage from "./components/Homepage";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import { UserProvider, useUser } from "./lib/context/user";
+import Navbar from "./components/NavBar";
 
-export default function App() {
+function App() {
+  const isLoginPage = window.location.pathname === "/login";
+  const user = useUser();
+
   return (
     <div>
-      <div>Welcome to the Budget Expense Management System</div>
-      <Homepage />
+      <Navbar />
+      {user.current ? <Home /> : <Login />}
     </div>
   );
 }
+
+export default App;

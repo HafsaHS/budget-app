@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { databases } from "../lib/appwrite";
-import conf from "../conf";
+import { databases } from "../../lib/appwrite";
+import conf from "../../conf";
 import { ID } from "appwrite";
 import { use } from "react";
 
@@ -95,7 +95,7 @@ const AddExpense = () => {
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">
-          Create Your Budget(s)
+          Add Your Expense!
         </h1>
 
         <div className="mb-6">
@@ -112,21 +112,20 @@ const AddExpense = () => {
               value={selectedBudget?.description}
               onChange={(e) => {
                 setSelectedBudget(e.target.value);
-                console.log(e.target.value);
               }}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
             >
               <option value="">-- Select a Budget --</option>
               {budgets.map((budget) => (
                 <option key={budget.$id} value={budget.$id}>
-                  {budget.description}
+                  {budget.name}
                 </option>
               ))}
             </select>
           </div>
           <input
             type="number"
-            placeholder="Target Amount"
+            placeholder="Amount"
             value={targetAmount}
             onChange={(e) => setTargetAmount(e.target.value)}
             className="w-full mb-2 p-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
